@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockstar Logistics</title>
+    <link rel="icon" href="Assets/Logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Stencil:opsz,wght@10..72,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Tilt+Neon&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+        html{
+            scroll-behavior: smooth;
+            ::-webkit-scrollbar {
+            width: 5px;
+            }
+
+            ::-webkit-scrollbar-track {
+            background: #282828;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            }
+
+            ::-webkit-scrollbar-thumb {
+            background: cyan;
+            border: 1px solid #282828;
+            border-radius: 10px;
+            height: 2rem;
+            }
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #282828;
+        }
+        .head{
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+        header {
+            background-color: #282828;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-logo {
+            font-size: 2rem;
+            font-family: 'Raleway', sans-serif;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-family: 'Chakra Petch', sans-serif;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #00ffe1;
+        }
+
+        .hero {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1)), url('Assets/new_bg.jpg'); /* Replace with your image */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            height: 45vh;
+            text-align: center;
+            padding: 150px 20px;
+            animation: float linear 0.3s;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            background: url('Assets/mask.jpg');
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: float linear 1s;
+        }
+
+        .hero p {
+            animation: fade linear 0.3s;
+            font-size: 1.3em;
+            margin-bottom: 40px;
+        }
+
+        .btn {
+            background-color: #00f7ff;
+            color: #282828;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color linear 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #b6fff3;
+        }
+
+        .section {
+            padding: 30px 20px;
+            background-color: rgb(0, 0, 0);
+            color: white;
+        }
+        a{
+            color: cyan;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+
+        .services, .pricing {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service{
+            width: 320px;
+            padding: 30px;
+            border: 1px solid #eee;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Chakra Petch', sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            animation: left linear;
+            animation-timeline: view();
+            animation-range: entry 0 cover 25%;
+        }
+
+        .price {
+            width: 320px;
+            padding: 30px;
+            border: 1px solid #eee;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-family: 'Chakra Petch', sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            animation: scroll linear;
+            animation-timeline: view();
+            animation-range: entry 0 cover 50%;
+        }
+
+        .service:hover {
+            transform: translateY(-5px);
+        }
+
+        .price:hover{
+            transform: scale(1.03);
+        }
+
+        footer {
+            background-color: #282828;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+        .section p, .section h4, .section h3{
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .login-signup {
+            display: flex;
+        }
+
+        @keyframes left{
+            from{
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes scroll{
+            from{
+                scale: 0.5;
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+                scale: 1;
+            }
+        }
+
+        @keyframes appear{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+
+        .login-signup a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s;
+        }
+
+        .login-signup a:hover {
+            color: #ffcc00;
+        }
+        .hide-desktop{
+            background: none;
+            border: none;
+        }
+        #menu-toggle{
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        .testimonials {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .testimonial {
+            width: 300px;
+            padding: 20px;
+            border: 1px solid #eee;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            animation: appear linear;
+            animation-timeline: view();
+            animation-range: entry 0 cover 50%;
+        }
+
+        .testimonial:hover{
+            transform: translateY(-5px);
+            box-shadow:0 0 10px  #00f7ff;
+        }
+
+        @keyframes float {
+            0%{
+                opacity: 0;
+            }
+            50%{
+                opacity: 0.5;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+        @keyframes fade{
+            0%{
+                font-size: 0;
+            }
+            50%{
+                font-size: 0.65em;
+            }
+            100%{
+                font-size: 1.3em;
+            }
+        }
+        
+        @media (min-width:768px){
+            .hide-desktop{
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                display: block;
+                gap: 0.2rem;
+                align-items: flex-end;
+            }
+
+            .header-logo{
+                display: inline;
+            }
+
+            .header-logo .hide-desktop{
+                margin-right: auto;
+            }
+
+            nav ul {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-evenly;
+                display: none;
+                margin-top: 10px;
+            }
+
+            nav ul li {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            .hero {
+                padding: 140px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5em;
+            }
+
+            .services, .pricing {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .service, .price {
+                width: 84%;
+            }
+
+            .login-signup {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="head">
+        <div class="header-logo"><button class="hide-desktop" id="menu-toggle" style="font-size: 2rem;">☰</button> Rockstar Logistics </div>
+        <nav>
+            <ul>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="signup.html" target="_blank" onclick="alert('Please Login First!')">Track Package</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="signup.html">Signup</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Ship with the Speed of a Rockstar</h1>
+        <p>Your ultimate shipping partner for fast, reliable, and secure delivery.</p>
+        <a href="#services" class="btn">Explore Our Services</a>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Our Rockstar Services</h2>
+        <div class="services">
+            <div class="service">
+                <img src="Assets/truck.svg">
+                <h3>Domestic Express</h3>
+                <p>Lightning-fast delivery across the nation.</p>
+            </div>
+            <div class="service">
+                <img src="Assets/globe.svg">
+                <h3>Global Shipping</h3>
+                <p>Seamless international shipping with expert handling.</p>
+            </div>
+            <div class="service">
+                <img src="Assets/fragile.svg">
+                <h3>Specialized Handling</h3>
+                <p>Secure and careful transport for fragile or valuable items.</p>
+            </div>
+            <div class="service">
+                <img src="Assets/price.svg">
+                <h3>Affordable Pricing</h3>
+                <p>Ship now with our affordable pricing plans</p>
+            </div>
+            <div class="service">
+                <img src="Assets/location.svg">
+                <h3>Easy Tracking</h3>
+                <p>Track the shipped packages using out portal with ease.</p>
+            </div>
+            <div class="service">
+                <img src="Assets/shield.svg">
+                <h3>Cargo Insurance</h3>
+                <p>We take responsibility for damage of goods in transist.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="section">
+        <h2>Rockstar Pricing</h2>
+        <div class="pricing">
+            <div class="price">
+                <img src="Assets/standard.svg">
+                <h3>Standard Plan</h3>
+                <p>$15 - $60</p>
+                <p>Reliable delivery within 3-7 business days.</p>
+            </div>
+            <div class="price">
+                <img src="Assets/express.svg">
+                <h3>Express Plan</h3>
+                <p>$60 - $120</p>
+                <p>Priority delivery within 1-3 business days.</p>
+            </div>
+            <div class="price">
+                <img src="Assets/flight.svg">
+                <h3>International Plan</h3>
+                <p>Variable (Contact Us)</p>
+                <p>Customized rates for global shipping solutions.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonials">
+            <div class="testimonial">
+                <p>"Rockstar Logistics delivered my package faster than I expected! Impressed with their service." - <b>Rohit Sharma</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"I was worried about shipping a fragile item, but Rockstar Logistics handled it with care. Highly recommend!" - <b>Ananya Pandey</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"Their international shipping process was smooth and efficient. I'll definitely use them again." - <b>Lakshmi Srinivasan</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"Great service! My packages always arrive on time and in perfect condition." - <b>A R Muragadoss</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"I've used several shipping companies, and Rockstar Logistics is by far the best." - <b>Sarah Tendulkar</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"The tracking system is very helpful, and the customer service is excellent." - <b>John Abraham</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"Shipping heavy equipment was a breeze with Rockstar Logistics. Professional and reliable." - <b>Nithya Menon</b></p>
+            </div>
+            <div class="testimonial">
+                <p>"I needed a last-minute shipment, and they delivered! Exceptional customer support." - <b>Emily Carter</b></p>
+            </div>    
+        </div>
+    </section>
+
+    <section id="about" class="section">
+        <h2>About Rockstar Shipping</h2>
+        <p>Rockstar Shipping is dedicated to providing top-tier shipping services with a focus on speed, reliability, and customer satisfaction. We leverage cutting-edge technology and a network of logistics experts to ensure your packages arrive safely and on time. Our mission is to make shipping a seamless and stress-free experience for our clients.</p>
+        <br><h2>Any Queries? </h2>
+        <h4>Write to us: rockstar.logistics@gmail.com or <a href="mailto:rockstar.logistics@gmail.com">Click Here!</a></h4>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Rockstar Logistics. All rights reserved.</p>
+    </footer>
+
+    <script src="JS Files/script.js"></script>
+</body>
+</html>

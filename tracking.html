@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Your Shipment - Rockstar Logistics</title>
+    <link rel="icon" href="Assets/Logo.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
+        body { 
+            background: black;
+            margin-bottom: 150px; 
+            color: white; 
+        }
+        .container { 
+            max-width: 500px;  
+            padding: 20px; 
+            margin: auto; 
+            margin-top: 40px; 
+        }
+        h2 { 
+            color: rgb(255, 255, 255);
+            margin-top: 20px;  
+            margin-bottom: 20px; 
+            font-size: 1.5rem; 
+        }
+        input { 
+            font-size: 1rem;
+            width: 100%; 
+            padding: 10px; 
+            margin: 20px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            background: #fff; 
+            color: black; 
+        
+        }
+        button { 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 10px; 
+            width: 100%; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin-bottom: 20px; 
+            font-size: 1.2rem; 
+        }
+        button:hover { background: #0056b3; }
+        .tracking-status { display: none; margin-top: 40px; }
+        .status-bar { display: flex; flex-direction: column; align-items: center; }
+        .status { width: 90%; padding: 15px; background: #ddd; border-radius: 5px; margin: 10px 0; font-size: 16px; text-align: left; }
+        .active { background: #bbb; color: black; }
+        iframe { width: 100%; height: 300px; border-radius: 10px; margin-top: 20px; }
+
+
+        @media (max-width: 768px) {
+            html{ background-color:black;display: flex; flex-direction: column; align-items: center; justify-content: center;}
+            .container { width: 90%; padding: 15px;align-items: center; justify-content: center; }
+            input, button { font-size: 14px; }
+            .status { font-size: 14px; padding: 10px; }
+            iframe { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rockstar Logistics</h1>
+        <h2>Track Your Shipment</h2>
+        <p>Enter your tracking number to check the status.</p>
+        <input type="text" id="trackingNumber" placeholder="Enter Tracking Number" onkeypress="handleKeyPress(event)">
+        <button onclick="trackShipment()">Track</button>
+        <div id="trackingStatus" class="tracking-status">
+            <h3>Shipment Status</h3>
+            <div class="status-bar" id="statusBar"></div>
+            <iframe id="mapFrame" src="" style="display:none;"></iframe>
+            <br>
+            <h3>Any Queries regarding Tracking?</h3><br>
+            <button  onclick="openChatbot()">Chat With Roxy AI</button>
+        </div>     
+    </div>
+<script src="JS Files/tracking.js"></script>
+</body>
+</html>

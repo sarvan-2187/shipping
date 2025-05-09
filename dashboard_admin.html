@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Admin</title>
+    <link rel="icon" href="Assets/Logo.png">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    html{
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: #f4f4f4;
+    }
+
+    .nav-bar{
+        position: fixed;
+        top: 0;
+    }
+
+    .dashboard-container {
+        display: flex;
+        width: 100%;
+    }
+
+    .sidebar {
+        min-width: 250px;
+        background-color: #2c3e50;
+        color: white;
+        position: sticky;
+        top: 0;
+        padding: 20px;
+        height: 190vh;
+    }
+
+    .sidebar h1 {
+        text-align: center;
+    }
+
+    .sidebar nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar nav ul li {
+        margin: 20px 0;
+    }
+
+    .sidebar nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background 0.3s;
+    }
+
+    .analytics-img{
+        height: 350px;
+        width: auto;
+    }
+
+    .sidebar nav ul li a:hover {
+        background: #34495e;
+    }
+
+    .content {
+        flex: 1;
+        padding: 20px;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    input, textarea {
+        width: 80%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ffffff;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        background: #2980b9;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    button:hover {
+        background: #1c6691;
+    }
+
+    #analyticsChart {
+        width: 100%;
+        max-width: 400px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        margin-top: 10px;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: left;
+    }
+
+    th {
+        background: #2c3e50;
+        color: white;
+    }
+
+    @media (min-width: 768px){
+        .wrapper{
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px){
+        .sidebar{
+            display: none;
+        }
+        .mobile-nav-bar{
+            display: flex;
+            padding: 1rem;
+            flex-direction: row;
+            background: #2c3e50;
+            min-width: 600px;
+            min-height: 5rem;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .mobile-nav-bar h1{
+            margin-right: auto;
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rockstar Logistics Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="mobile-nav-bar">
+            <h1 style="color: #ffffff;">Rockstar Logistics</h1>
+        </div>
+    </div>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="nav-bar">
+            <nav>
+                <ul>
+                    <a style="color: white; font-size: 1.5rem;font-weight: 700;">Rockstar Logistics</a>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#orders">Order Management</a></li>
+                    <li><a href="#support">Customer Support</a></li>
+                </ul>
+            </nav>
+        </div>
+        </aside>
+        <main class="content">
+            <h1 style="text-align: center;">ADMIN - PANEL</h1>
+            <section id="analytics">
+                <h2>Shipment Analytics</h2>
+                <img src="Assets/analytics_chart.png" class="analytics-img">
+            </section>
+            
+            <section id="orders">
+                <h2>Manage Orders</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Status</th>
+                            <th>Location</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="ordersTable">
+                        <tr>
+                            <td>#000001</td>
+                            <td>Awaiting Dispatch</td>
+                            <td>Chennai Warehouse</td>
+                            <td>Expected Dispatch by Tomorrow</td>
+                        </tr>
+                        <tr>
+                            <td>#000002</td>
+                            <td>In Transit  Bengaluru</td>
+                            <td>Bengaluru Warehouse</td>
+                            <td>Expected Dispatch by Tomorrow</td>
+                        </tr>
+                        <tr>
+                            <td>#000003</td>
+                            <td>Arrived at Banglore Nearest Hub</td>
+                            <td>Banglore Hub</td>
+                            <td>Out for Delivery</td>
+                        </tr>
+                        <tr>
+                            <td>#000004</td>
+                            <td>Arrived at Jaipur Hub</td>
+                            <td>Jaipur Warehouse</td>
+                            <td>Expected Delivery by Day after Tomorrow</td>
+                        </tr>
+                        <tr>
+                            <td>#000005</td>
+                            <td>Delivered in Lucknow</td>
+                            <td>Lucknow</td>
+                            <td>Delivered</td>
+                        </tr>
+                        <tr>
+                            <td>#000006</td>
+                            <td>Delivered in Vizag</td>
+                            <td>Visakhapatnam</td>
+                            <td>Delivered</td>
+                        </tr>
+                        <tr>
+                            <td>#000007</td>
+                            <td>Delivered in Ranchi</td>
+                            <td>Ranchi</td>
+                            <td>Delivered</td>
+                        </tr>
+                        <tr>
+                            <td>#000008</td>
+                            <td>Arrived at Jaipur Hub</td>
+                            <td>Jaipur Warehouse</td>
+                            <td>Expected Delivery by Tomorrow</td>
+                        </tr>
+                        <tr>
+                            <td>#000009</td>
+                            <td>Delivered in Lucknow</td>
+                            <td>Lucknow</td>
+                            <td>Delivered</td>
+                        </tr>
+                        <tr>
+                            <td>#000010</td>
+                            <td>Delivered in Banglore</td>
+                            <td>Banglore</td>
+                            <td>Delivered</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <section id="support">
+                <h2>Customer Support</h2>
+                <table>
+                    <thead>
+                        <th>Customer Name</th>
+                        <th>Query</th>
+                        <th>Solution</th>
+                        <th>Respond</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Lakshmi Srinivasan</td>
+                            <td>How to track the location of My Shipment?</td>
+                            <td>Head to the Shipment Tracking Page & from there You can check the Status by Giving Tracking Number <br><br>(or)<br><br> Click Location icon on top Right Corner in Mobile.</td>
+                            <td><img src="Assets/tick.svg"></td>
+                        </tr>
+                        <tr>
+                            <td>Emily Carter</td>
+                            <td>Need to know about the International Courier Plan! </td>
+                            <td><textarea id="customerQuery" style="font-family: 'Poppins', sans-serif; border: 1px solid black;" rows="3" cols="20" placeholder="Address customer query..."></textarea></td>
+                            <td><button style="font-family: 'Poppins', sans-serif;">Respond</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <br><br>
+        </main>
+    </div>
+</body>
+</html>
+
+</body>
+</html>
